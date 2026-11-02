@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alvin Barbers</title>
+  <meta name="description" content="Alvin Barbers, Whiteladies Road, Bristol. Classic cuts, sharp fades and hot towel shaves. Student discount and loyalty scheme. Book online in under a minute.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo">
+      <span class="pole" aria-hidden="true"></span>
+      <span data-shop-name>Alvin Barbers</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#gallery">Haircuts</a>
+      <a href="#loyalty">Loyalty</a>
+      <a href="#about">About</a>
+      <a href="#contact">Visit</a>
+    </nav>
+    <button class="btn btn-gold btn-sm" data-book>Book now</button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><span></span><span></span></button>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow anim-up" style="--d:.1s">Whiteladies Road &nbsp;·&nbsp; Bristol</p>
+      <h1 class="anim-up" style="--d:.25s">Sharp cuts.<br><em>Zero fuss.</em></h1>
+      <p class="lead anim-up" style="--d:.4s">Classic cuts, skin fades and hot towel shaves. Pick a service, choose a time and pay — all in under a minute.</p>
+      <div class="hero-cta anim-up" style="--d:.55s">
+        <button class="btn btn-gold" data-book>Book an appointment</button>
+        <a href="#services" class="btn btn-ghost">View prices</a>
+      </div>
+      <div class="anim-up" style="--d:.7s">
+        <button class="scissors" id="scissors" type="button" aria-label="Spin the scissors">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <g class="blade blade-a">
+              <path d="M27 43 L41 3"/>
+              <circle cx="23" cy="50" r="7"/>
+            </g>
+            <g class="blade blade-b">
+              <path d="M37 43 L23 3"/>
+              <circle cx="41" cy="50" r="7"/>
+            </g>
+            <circle class="pivot" cx="32" cy="28.7" r="2.2"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <a href="#services" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+  </section>
+
+  <!-- ===== Marquee ===== -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Skin Fades</span><span>✦</span><span>Classic Cuts</span><span>✦</span><span>Beard Trims</span><span>✦</span><span>Hot Towel Shaves</span><span>✦</span><span>Kids Cuts</span><span>✦</span><span>Student Discount</span><span>✦</span>
+      <span>Skin Fades</span><span>✦</span><span>Classic Cuts</span><span>✦</span><span>Beard Trims</span><span>✦</span><span>Hot Towel Shaves</span><span>✦</span><span>Kids Cuts</span><span>✦</span><span>Student Discount</span><span>✦</span>
+    </div>
+  </div>
+
+  <!-- ===== Services & prices ===== -->
+  <section class="section" id="services">
+    <div class="section-head reveal">
+      <p class="eyebrow">Services &amp; prices</p>
+      <h2>Pick your cut</h2>
+      <p class="muted">Tap any service to book it straight away.</p>
+    </div>
+    <!-- Cards are generated from the SERVICES list in script.js -->
+    <div class="service-grid" id="serviceGrid"></div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section class="section section-alt" id="gallery">
+    <div class="section-head reveal">
+      <p class="eyebrow">Our work</p>
+      <h2>Haircut examples</h2>
+      <p class="muted">A few recent cuts from the chair.</p>
+    </div>
+    <!-- Tiles are generated from the GALLERY list in script.js -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- ===== Loyalty scheme ===== -->
+  <section class="section" id="loyalty">
+    <div class="loyalty">
+      <div class="reveal">
+        <p class="eyebrow">Loyalty scheme</p>
+        <h2>Every 5th haircut is <em>free</em></h2>
+        <p class="muted">Get a stamp each time you come in for a haircut. Collect four stamps and your fifth haircut is on us.</p>
+        <ul class="ticks">
+          <li>No sign-up needed</li>
+          <li>Students included</li>
+          <li>[How stamps are collected, e.g. card or ask at the till]</li>
+        </ul>
+      </div>
+      <div class="stamp-card reveal" style="--d:.15s" aria-label="Loyalty card: 4 stamps, then your 5th haircut is free">
+        <div class="stamp-card-head">
+          <span data-shop-name>Alvin Barbers</span>
+          <small>Loyalty card</small>
+        </div>
+        <div class="stamps" aria-hidden="true">
+          <span class="stamp" style="--i:0">✂</span>
+          <span class="stamp" style="--i:1">✂</span>
+          <span class="stamp" style="--i:2">✂</span>
+          <span class="stamp" style="--i:3">✂</span>
+          <span class="stamp stamp-free" style="--i:4">FREE</span>
+        </div>
+        <p class="stamp-card-foot">5th haircut free</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How booking works ===== -->
+  <section class="section section-alt" id="how">
+    <div class="section-head reveal">
+      <p class="eyebrow">Quick &amp; easy</p>
+      <h2>Booked in 3 steps</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="step-num">1</span><h3>Choose a service</h3><p class="muted">Clear prices, no surprises.</p></div>
+      <div class="step reveal" style="--d:.1s"><span class="step-num">2</span><h3>Pick a time</h3><p class="muted">See live availability.</p></div>
+      <div class="step reveal" style="--d:.2s"><span class="step-num">3</span><h3>Pay &amp; done</h3><p class="muted">Pay online, in the shop, or at the student rate.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section class="section" id="about">
+    <div class="about reveal">
+      <div class="about-img placeholder"><span>Shop photo</span></div>
+      <div>
+        <p class="eyebrow">About us</p>
+        <h2>More than a haircut</h2>
+        <p class="muted">[About text — a few sentences about the shop, the team and what makes you different.]</p>
+        <ul class="ticks">
+          <li>Walk-ins welcome</li>
+          <li>Experienced barbers</li>
+          <li>Student discount for uni students</li>
+          <li>Every 5th haircut free</li>
+          <li>Card &amp; contactless accepted</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section class="section section-alt" id="contact">
+    <div class="section-head reveal">
+      <p class="eyebrow">Visit us</p>
+      <h2>Find the shop</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="card reveal">
+        <h3>Opening hours</h3>
+        <table class="hours" id="hoursTable"></table>
+      </div>
+      <div class="card reveal" style="--d:.1s">
+        <h3>Contact</h3>
+        <p class="muted">[Number] Whiteladies Road<br>Bristol, [Postcode]</p>
+        <p><a href="tel:" class="link">[Phone number]</a><br><a href="mailto:" class="link">[Email address]</a></p>
+        <button class="btn btn-gold" data-book>Book now</button>
+      </div>
+      <!-- Swap the q= value for the exact shop address once known -->
+      <div class="card map reveal" style="--d:.2s">
+        <iframe title="Map of Whiteladies Road, Bristol" src="https://www.google.com/maps?q=Whiteladies+Road,+Bristol&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> <span data-shop-name>Alvin Barbers</span>. All rights reserved.</p>
+  </footer>
+
+  <!-- Floating book button (mobile) -->
+  <button class="fab btn btn-gold" data-book>Book now</button>
+
+  <!-- ===== Booking modal ===== -->
+  <div class="modal" id="bookingModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+      <button class="modal-close" data-close aria-label="Close">×</button>
+
+      <div class="progress" id="progress">
+        <span class="active">Service</span><span>Time</span><span>Details</span><span>Payment</span>
+      </div>
+
+      <form id="bookingForm" novalidate>
+        <!-- Step 1: service -->
+        <div class="step-pane active" data-step="1">
+          <h2 id="bookingTitle">Choose a service</h2>
+          <div class="option-list" id="serviceOptions"></div>
+        </div>
+
+        <!-- Step 2: date & time -->
+        <div class="step-pane" data-step="2">
+          <h2>Pick a date &amp; time</h2>
+          <label class="field-label">Barber</label>
+          <div class="chips" id="barberChips"></div>
+          <label class="field-label">Date</label>
+          <div class="date-strip" id="dateStrip"></div>
+          <label class="field-label">Time</label>
+          <div class="time-grid" id="timeGrid"></div>
+        </div>
+
+        <!-- Step 3: details -->
+        <div class="step-pane" data-step="3">
+          <h2>Your details</h2>
+          <div class="field"><label for="fName">Full name</label><input id="fName" name="name" autocomplete="name" required></div>
+          <div class="field"><label for="fPhone">Phone</label><input id="fPhone" name="phone" type="tel" autocomplete="tel" required></div>
+          <div class="field"><label for="fEmail">Email</label><input id="fEmail" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="fNotes">Notes (optional)</label><textarea id="fNotes" name="notes" rows="2" placeholder="e.g. grade 1 on the sides"></textarea></div>
+        </div>
+
+        <!-- Step 4: payment -->
+        <div class="step-pane" data-step="4">
+          <h2>Review &amp; pay</h2>
+          <div class="summary" id="summary"></div>
+          <div class="pay-options">
+            <label class="pay-option">
+              <input type="radio" name="pay" value="online" checked>
+              <span><strong>Pay now</strong><small>Card, Apple Pay, Google Pay</small></span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="pay" value="shop">
+              <span><strong>Pay in shop</strong><small>Cash or card on the day</small></span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="pay" value="student">
+              <span><strong>Uni student</strong><small>Student rate, pay in shop with valid student ID</small></span>
+            </label>
+          </div>
+          <p class="secure-note">🔒 Payments are handled securely by our payment provider.</p>
+        </div>
+
+        <!-- Step 5: done -->
+        <div class="step-pane" data-step="5">
+          <div class="done">
+            <svg class="check" viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-15"/></svg>
+            <h2>You're booked!</h2>
+            <p class="muted" id="doneText"></p>
+            <button type="button" class="btn btn-gold" data-close>Done</button>
+          </div>
+        </div>
+
+        <div class="modal-actions" id="modalActions">
+          <button type="button" class="btn btn-ghost" id="backBtn">Back</button>
+          <button type="button" class="btn btn-gold" id="nextBtn">Continue</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
