@@ -172,7 +172,7 @@ h3 { font-size: 1.25rem; margin-bottom: .4rem; }
 .hours tr.today td { color: var(--gold); font-weight: 600; }
 
 .footer { text-align: center; padding: 2rem 1rem 6rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
-.fab { position: fixed; right: 1rem; bottom: 1rem; z-index: 40; display: none; box-shadow: 0 10px 30px -5px rgba(0,0,0,.6); }
+.fab { position: fixed; left: 1rem; bottom: 1rem; z-index: 40; display: none; box-shadow: 0 10px 30px -5px rgba(0,0,0,.6); }
 
 /* ===== Modal ===== */
 .modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 1rem; visibility: hidden; }
