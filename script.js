@@ -31,6 +31,23 @@ const GALLERY = [
   { title: "[Haircut name]", image: null },
 ];
 
+// Google reviews. These are SAMPLE placeholders so the layout can be seen —
+// replace them with real reviews copied from the shop's Google profile before going live.
+const GOOGLE = {
+  rating: null,      // e.g. 4.9
+  reviewCount: null, // e.g. 120
+  url: "#",          // link to the shop's Google reviews page
+};
+
+const REVIEWS = [
+  { name: "[Customer name]", rating: 5, text: "Amazing haircut, best fade I've had in Bristol.", when: "[Date]" },
+  { name: "[Customer name]", rating: 5, text: "Great service and trim. Friendly staff and in and out quickly.", when: "[Date]" },
+  { name: "[Customer name]", rating: 5, text: "Really easy to book online and the cut was spot on.", when: "[Date]" },
+  { name: "[Customer name]", rating: 5, text: "Brilliant beard trim and hot towel shave. Will be back.", when: "[Date]" },
+  { name: "[Customer name]", rating: 5, text: "Student discount is a big help and the cut was excellent.", when: "[Date]" },
+  { name: "[Customer name]", rating: 5, text: "Great atmosphere, really took their time to get it right.", when: "[Date]" },
+];
+
 // Opening hours, Sunday first. Use null for closed days. 24h "HH:MM".
 const HOURS = [
   null,                                // Sunday
@@ -48,7 +65,8 @@ const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-const formatPrice = (p) => (p == null ? null : `${SHOP.currency}${Number(p).toFixed(p % 1 ? 2 : 0)}`);
+const escapeHTML = (str) => str.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const formatPrice =(p) => (p == null ? null : `${SHOP.currency}${Number(p).toFixed(p % 1 ? 2 : 0)}`);
 const priceHTML = (p) => (p == null ? `<span class="price tbc">Price TBC</span>` : `<span class="price">${formatPrice(p)}</span>`);
 
 /* ----- Static content ----- */
@@ -69,6 +87,23 @@ $("#galleryGrid").innerHTML = GALLERY.map((g, i) => g.image
   ? `<figure class="gallery-item reveal" style="--d:${(i % 3) * 0.1}s"><img src="${g.image}" alt="${g.title}" loading="lazy"><figcaption>${g.title}</figcaption></figure>`
   : `<figure class="gallery-item placeholder reveal" style="--d:${(i % 3) * 0.1}s"><span>Image coming soon</span><figcaption>${g.title}</figcaption></figure>`
 ).join("");
+
+$("#ratingScore").textContent = GOOGLE.rating ?? "[Rating]";
+$("#ratingCount").textContent = `Based on ${GOOGLE.reviewCount ?? "[number of]"} Google reviews`;
+$("#googleReviewsLink").href = GOOGLE.url;
+
+const reviewCard = (r) => `
+  <figure class="review">
+    <div class="review-stars" aria-label="${r.rating} out of 5 stars">${"★".repeat(r.rating)}<span>${"★".repeat(5 - r.rating)}</span></div>
+    <blockquote>“${escapeHTML(r.text)}”</blockquote>
+    <figcaption>
+      <span class="avatar" aria-hidden="true">${escapeHTML(r.name.replace(/[^A-Za-z]/g, "").charAt(0) || "?")}</span>
+      <span><strong>${escapeHTML(r.name)}</strong><small>${escapeHTML(r.when)} · Google</small></span>
+    </figcaption>
+  </figure>`;
+// Cards are listed twice so the scrolling loop is seamless; the copy is hidden from screen readers.
+$("#reviewsTrack").innerHTML = `<div class="reviews-set">${REVIEWS.map(reviewCard).join("")}</div>`
+  + `<div class="reviews-set" aria-hidden="true">${REVIEWS.map(reviewCard).join("")}</div>`;
 
 const todayIdx = new Date().getDay();
 $("#hoursTable").innerHTML = [1, 2, 3, 4, 5, 6, 0].map((d) => `
@@ -328,7 +363,6 @@ function totalFor(price, pay) {
 
 $$("input[name=pay]").forEach((r) => r.addEventListener("change", renderSummary));
 
-const escapeHTML = (str) => str.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
 /* TODO: connect a payment provider (e.g. Stripe Checkout or Square).
    This should send the booking to your server, which creates a checkout session

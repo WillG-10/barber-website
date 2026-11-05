@@ -21,6 +21,7 @@
     <nav class="nav-links" id="navLinks">
       <a href="#services">Services</a>
       <a href="#gallery">Haircuts</a>
+      <a href="#reviews">Reviews</a>
       <a href="#loyalty">Loyalty</a>
       <a href="#about">About</a>
       <a href="#contact">Visit</a>
@@ -89,8 +90,28 @@
     <div class="gallery-grid" id="galleryGrid"></div>
   </section>
 
+  <!-- ===== Google reviews ===== -->
+  <section class="section" id="reviews">
+    <div class="section-head reveal">
+      <p class="eyebrow">Google reviews</p>
+      <h2>What customers say</h2>
+      <div class="rating-summary">
+        <span class="rating-score" id="ratingScore"></span>
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="muted" id="ratingCount"></span>
+      </div>
+    </div>
+    <!-- Cards are generated from the REVIEWS list in script.js -->
+    <div class="reviews-marquee reveal">
+      <div class="reviews-track" id="reviewsTrack"></div>
+    </div>
+    <div class="reviews-cta reveal">
+      <a class="btn btn-ghost" id="googleReviewsLink" href="#" target="_blank" rel="noopener">Read all reviews on Google</a>
+    </div>
+  </section>
+
   <!-- ===== Loyalty scheme ===== -->
-  <section class="section" id="loyalty">
+  <section class="section section-alt" id="loyalty">
     <div class="loyalty">
       <div class="reveal">
         <p class="eyebrow">Loyalty scheme</p>
@@ -120,7 +141,7 @@
   </section>
 
   <!-- ===== How booking works ===== -->
-  <section class="section section-alt" id="how">
+  <section class="section" id="how">
     <div class="section-head reveal">
       <p class="eyebrow">Quick &amp; easy</p>
       <h2>Booked in 3 steps</h2>
@@ -133,7 +154,7 @@
   </section>
 
   <!-- ===== About ===== -->
-  <section class="section" id="about">
+  <section class="section section-alt" id="about">
     <div class="about reveal">
       <div class="about-img placeholder"><span>Shop photo</span></div>
       <div>
@@ -152,7 +173,7 @@
   </section>
 
   <!-- ===== Contact ===== -->
-  <section class="section section-alt" id="contact">
+  <section class="section" id="contact">
     <div class="section-head reveal">
       <p class="eyebrow">Visit us</p>
       <h2>Find the shop</h2>
